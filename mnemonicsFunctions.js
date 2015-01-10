@@ -1,4 +1,36 @@
-
+//J MNEMONIC
+function j(memory){
+  programCounter=memory;
+}
+//JEQ MNEMONIC
+function jeq(memory){
+  if(statusWord(CC)==1)//1 means =
+  programCounter=memory;
+}
+//JGT MNEMONIC
+function jgt(memory){
+  if(statusWord(CC)==3)//3 means >
+  programCounter=memory;
+}
+//JLT MNEMONIC
+function jlt(memory){
+  if(statusWord(CC)==2)//2 means <
+  programCounter=memory;
+}
+//JSUB MNEMONIC
+function jsub(memory){
+  linkage=programCounter;
+  programCounter=memory;
+}
+//LDA MNEMONIC
+function lda(memory){
+  accumulator=memory;
+}
+//LDCH MNEMONIC
+function ldch(memory){
+  accumulator=memory & 511;
+}
+  
 //MUL MNEUMONIC
 function mul(memory){
 	accumulator=accumulator*memory
